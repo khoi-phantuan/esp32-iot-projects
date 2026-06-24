@@ -19,4 +19,5 @@
 3. **Nạp code (Upload):** Nhấn biểu tượng mũi tên **Upload** để tiến hành biên dịch và nạp code vào chip.
 4. **Mẹo xử lý phần cứng khi nạp:** Theo dõi cửa sổ *Output* bên dưới Arduino IDE. Khi màn hình xuất hiện dòng `Connecting...`, lập tức **nhấn và giữ nút BOOT** trên mạch ESP32, chỉ thả ra khi thấy dòng chữ chuyển sang `Uploading...` hoặc hiển thị tiến trình nạp `%`.
 5. **Khởi động chương trình:** Sau khi quá trình nạp hoàn tất (xuất hiện dòng `Hard resetting via RTS pin...`), nhấn nút **EN (hoặc RST)** trên mạch để chip khởi động lại, kích hoạt chương trình mới và quan sát đèn LED trên mạch nhấp nháy.
-![Kết quả thực hiện](images/demo.gif)
+![](images/demo.gif)
+*Kết quả thực hiện*
