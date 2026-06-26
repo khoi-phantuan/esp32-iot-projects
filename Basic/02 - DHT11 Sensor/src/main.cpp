@@ -1,18 +1,9 @@
-/* 
-Project: Đo nhiệt độ và độ ẩm không khí bằng DHT11 và gửi dữ liệu về máy tính
-
-Nối dây: dùng 3 dây jumper loại female-female để nối:
-- Chân Data của DHT11 vào chân GPIO 4 của ESP32;
-- Chân VCC của DHT11 vào chân 3.3V của ESP32;
-- Chân GND của DHT11 vào chân GND của ESP32.
-*/
-
 #include "DHT.h"
 
-#define DHTPIN 4     // Bạn nối chân Data của DHT11 vào chân GPIO 4 của ESP32
+#define DHTPIN 4     // Khai báo chân sẽ nhận dữ liệu từ chân 'out' của DHT11 là chân 4 (D4) trên ESP32
 #define DHTTYPE DHT11   // Khai báo loại cảm biến là DHT11
 
-DHT dht(DHTPIN, DHTTYPE); // Khởi tạo một đối tượng dht với cấu hình trên
+DHT dht(DHTPIN, DHTTYPE); // Khởi tạo đối tượng 'dht' kiểu DHT với cấu hình trên
 
 void setup() {
   Serial.begin(115200); // Mở đường ống giao tiếp Serial với máy tính trên ESP32 ở tốc độ 115200 baud (115200 bit/s)
@@ -35,13 +26,10 @@ void loop() {
   }
 
   // Nếu mọi thứ mượt mà, dùng đường ống Serial đẩy dữ liệu nhị phân đã dịch ngược lên màn hình laptop
-  Serial.print(F("Độ ẩm: "));
+  Serial.print(F("Humidity: "));
   Serial.print(h);
   Serial.print(F("%  |  "));
-  Serial.print(F("Nhiệt độ: "));
+  Serial.print(F("Temperature: "));
   Serial.print(t);
   Serial.println(F("°C"));
 }
-
-// Chương trình trên sẽ đọc dữ liệu từ cảm biến DHT11 và gửi về máy tính qua cổng Serial.
-// -> Mở Serial Monitor trong Arduino IDE để xem dữ liệu nhiệt độ và độ ẩm được cập nhật mỗi 2 giây.
