@@ -1,6 +1,6 @@
 # Project 3: Web Server
 
-> Make the ESP32 board connect to **Wi-Fi** and build a **Web Server** on it, which will perform the task of receiving requests from the user's browsers, handling them and sending back corresponding responses.
+> Make the ESP32 board connect to **Wi-Fi** and build a **Web Server** on it, which will perform the task of receiving requests from the clients' web browsers, handling them and sending back corresponding responses.
 
 ---
 
@@ -26,7 +26,9 @@
 ---
 
 ## 🛠 Implementation
-- step 1...
+- Use the USB cable to connect the ESP32 board to your computer. Then select the *'ESP32 Dev Module'* board and choose the right port in the Arduino IDE.
+- ...
+
 ---
 
 ## 📚 Some useful theory
