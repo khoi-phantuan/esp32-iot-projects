@@ -27,7 +27,10 @@
 
 ## 🛠 Implementation
 - Use the USB cable to connect the ESP32 board to your computer. Then select the **'ESP32 Dev Module'** board and choose the right port in the Arduino IDE.
-- Flash the source code in `main.cpp` onto the ESP32 chip by clicking on the *'Upload'* button.
+- Flash the source code in `main.cpp` onto the ESP32 chip by clicking on the **'Upload'** button.
+- Then, press the **'EN'** button on the board to restart the chip. Right after that, open the **'Serial Monitor'** window and watch the result of the Wi-Fi connecting process:
+![](images/connnect_to_wi-fi.png)
+*Successfully connecting to Wi-Fi, with the 192.168.1.13 IP Address.*
 
 ---
 
