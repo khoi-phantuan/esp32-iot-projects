@@ -1,7 +1,7 @@
 #include <WiFi.h> // thư viện WiFi của package ESP32 -> include để sử dụng bộ tính năng WiFi của bo mạch
 
-const char* ssid = "KnightP";
-const char* password = "KhoiPhan1104";
+const char* ssid = "khangkhoi";
+const char* password = "1007@htkk";
 // biến lưu tên và mật khẩu của mạng mà ESP32 sẽ xin kết nối vào - kiểu char* (lưu trong bộ nhớ Flash), thay vì String (tốn RAM)
 
 WiFiServer server(80); // khởi tạo listening socket 'server' hoạt động ở cổng 80 trên ESP32, nhận và quản lý các yêu cầu được truyền tới qua sóng WiFi

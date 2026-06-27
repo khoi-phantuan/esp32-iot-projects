@@ -26,8 +26,8 @@
 ---
 
 ## 🛠 Implementation
-- Use the USB cable to connect the ESP32 board to your computer. Then select the *'ESP32 Dev Module'* board and choose the right port in the Arduino IDE.
-- ...
+- Use the USB cable to connect the ESP32 board to your computer. Then select the **'ESP32 Dev Module'** board and choose the right port in the Arduino IDE.
+- Flash the source code in `main.cpp` onto the ESP32 chip by clicking on the *'Upload'* button.
 
 ---
 
