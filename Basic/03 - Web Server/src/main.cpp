@@ -12,7 +12,7 @@ void setup()
   delay(10); // thời gian chờ để chip ESP32 chuẩn bị cho công tác truyền thông dữ liệu Serial với máy tính
 
   Serial.println();
-  Serial.print("Dang ket noi vao mang: ");
+  Serial.print("Connecting to the WiFi: ");
   Serial.println(ssid);
 
   // đối tượng WiFi được thư viện WiFi.h khởi tạo sẵn khi ta include, đại diện cho Card mạng WiFi vật lý / bộ tính năng WiFi của bo mạch ESP32 
@@ -25,12 +25,12 @@ void setup()
   }
 
   Serial.println("");
-  Serial.println("Wi-Fi da ket noi thanh cong!");  
-  Serial.print("Dia chi IP cua ESP32 la: ");
+  Serial.println("Wi-Fi successfully connected!");  
+  Serial.print("The IP Address of the ESP32 is: ");
   Serial.println(WiFi.localIP()); // hàm .localIP() trả về địa chỉ IP mà router cấp cho ESP32 này
 
   server.begin(); // listening socket ở port 80 bắt đầu hoạt động
-  Serial.println("Web Server da khoi dong xong, dang mo cua Port 80...");
+  Serial.println("Web Server finishes starting, now opening the Port 80...");
 }
 
 void loop() 
@@ -42,7 +42,7 @@ void loop()
 
   if (client) // nếu socket này không rỗng (đang thực sự phục vụ một máy khách)...
   {
-    Serial.println("Co Client moi go cua!"); 
+    Serial.println("A new Client has just requested to connect!"); 
     
     while (client.connected()) // trong khi trạng thái kết nối của connecting socket vẫn đang là true...
     {
@@ -63,7 +63,7 @@ void loop()
 
           client.println(); // kết thúc việc gửi chuỗi "hệ thống" bằng một cái xuống dòng
           
-          client.println("Chao Khoi, he thong da chay vao Web Server!"); // sau đó, bắt đầu gửi chuỗi "nội dung" để trình duyệt hiển thị lên
+          client.println("Hi Khoi, the Web Server has been running on the system!"); // sau đó, bắt đầu gửi chuỗi "nội dung" để trình duyệt hiển thị lên
           
           break; // dừng vòng lặp, không cần đọc tiếp body của HTTP Request nữa, chỉ cần HELLO thôi 
         }
@@ -72,6 +72,6 @@ void loop()
     
     client.stop(); // dừng hoạt động connecting socket đang phục vụ máy khách
     Serial.println();
-    Serial.println("Client da ngat ket noi.");
+    Serial.println("Client disconnected.");
   }
 }
