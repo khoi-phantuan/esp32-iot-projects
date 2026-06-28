@@ -21,7 +21,8 @@
 ---
 
 ## 💻 Software tools
-- **Arduino IDE 2.3.10**
+- **Visual Studio Code** (with **'PlatformIO IDE'** extension installed)
+![](images/platformio.png)
 
 ---
 
