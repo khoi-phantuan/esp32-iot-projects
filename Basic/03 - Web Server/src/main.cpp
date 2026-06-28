@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <WiFi.h> // thư viện WiFi của package ESP32 -> include để sử dụng bộ tính năng WiFi của bo mạch
 
 const char* ssid = "khangkhoi";
