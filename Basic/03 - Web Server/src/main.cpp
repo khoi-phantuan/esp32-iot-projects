@@ -51,7 +51,7 @@ void loop()
   // socket này sẽ đóng gói và truyền đi dữ liệu truyền thông giữa 2 máy bằng sóng WiFi
 
   // ĐỂ HIỂU ĐOẠN CODE XỬ LÝ DƯỚI ĐÂY, VUI LÒNG XEM QUA CẤU TRÚC TIÊU CHUẨN CỦA MỘT HTTP REQUEST !!!
-  
+
   if (client) 
   {
     Serial.println("Có Client mới kết nối!");
@@ -111,9 +111,9 @@ void loop()
         }
       }
     }
-  }
 
-  client.stop(); // dừng hoạt động connecting socket đang phục vụ máy khách
-  Serial.println();
-  Serial.println("Client disconnected.");
+    client.stop(); // dừng hoạt động connecting socket đang phục vụ máy khách
+    Serial.println();
+    Serial.println("Client disconnected.");
+  }
 }
