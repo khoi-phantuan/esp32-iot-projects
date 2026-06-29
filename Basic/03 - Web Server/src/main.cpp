@@ -54,7 +54,7 @@ void loop()
 
   if (client) 
   {
-    Serial.println("Có Client mới kết nối!");
+    Serial.println("A new client has just connected!");
     String currentLine = ""; // biến chuỗi lưu nội dung một dòng Header
   
     while (client.connected()) // hàm connected() trả về trạng thái kết nối (true/false) của connecting socket hiện tại
@@ -92,7 +92,7 @@ void loop()
             } 
             else 
             {
-              client.println("<h1>Lỗi: Không tìm thấy file index.html trong Flash!</h1>");
+              client.println("<h1>Error: Cannot find the index.html file in Flash!</h1>");
             }
     
             break; // Thoát vòng lặp để ngắt kết nối với client này
