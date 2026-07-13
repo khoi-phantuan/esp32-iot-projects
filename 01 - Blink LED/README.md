@@ -1,23 +1,86 @@
-# Project 01: Blink LED
+# 🔌 Project 01: Nháy LED
 
-## 1. Mô tả
-- Chương trình cơ bản nhất: Điều khiển đèn LED tích hợp trên bo mạch ESP32 nhấp nháy theo chu kỳ 1 giây để kiểm tra xem mạch có hoạt động bình thường hay không.
+> Chương trình đầu tiên và đơn giản nhất: Điều khiển đèn LED tích hợp trên bo mạch ESP32 nhấp nháy theo chu kỳ 1 giây. Giúp người thực hành làm quen với công việc lập trình ứng dụng để điều khiển thiết bị nhúng.
 
-## 2. Linh kiện sử dụng
-- **Mạch phát triển ESP32** (Tích hợp chip cầu chuyển đổi USB-to-UART CH340):
-![](images/ESP32.jpg)
-- **Cáp dữ liệu USB Type-C** (Dùng để cấp nguồn và nạp code):
-![](images/USB_Type-C.jpg)
-
-## 3. Phần mềm sử dụng
-- **Arduino IDE** (Đã cài đặt sẵn ESP32 Board Package):
-![](images/Arduino_IDE.png)
-
-## 4. Hướng dẫn thực hiện
-1. **Kết nối phần cứng:** Cắm đầu USB-A của cáp vào máy tính và đầu USB-C vào cổng nạp Type-C trên bo mạch ESP32.
-2. **Chuẩn bị mã nguồn:** Sao chép nội dung mã nguồn trong đường dẫn `src/main.cpp`, dán vào vùng làm việc (Sketch) trên Arduino IDE.
-3. **Nạp code (Upload):** Nhấn biểu tượng mũi tên **Upload** để tiến hành biên dịch và nạp code vào chip.
-4. **Mẹo xử lý phần cứng khi nạp:** Theo dõi cửa sổ *Output* bên dưới Arduino IDE. Khi màn hình xuất hiện dòng `Connecting...`, lập tức **nhấn và giữ nút BOOT** trên mạch ESP32, chỉ thả ra khi thấy dòng chữ chuyển sang `Uploading...` hoặc hiển thị tiến trình nạp `%`.
-5. **Khởi động chương trình:** Sau khi quá trình nạp hoàn tất (xuất hiện dòng `Hard resetting via RTS pin...`), nhấn nút **EN (hoặc RST)** trên mạch để chip khởi động lại, kích hoạt chương trình mới và quan sát đèn LED trên mạch nhấp nháy.
 ![](images/demo.gif)
-*Kết quả thực hiện*
+
+---
+
+## Mục lục
+- [1. Tính năng](#1-tính-năng)
+- [2. Linh kiện](#2-linh-kiện)
+- [3. Công nghệ](#3-công-nghệ)
+- [4. Cấu trúc dự án](#4-cấu-trúc-dự-án)
+- [5. Thực hiện](#5-thực-hiện)
+- [6. Mình đã học được gì?](#6-mình-đã-học-được-gì)
+
+---
+
+## ✨ 1. Tính năng
+- LED trên board sáng tắt luân phiên trong thời gian 1 giây.
+
+---
+
+## 🧰 2. Linh kiện
+
+| Linh kiện | Ảnh |
+|---|---|
+| ESP32 Development Board (30-pin, USB-C) | <img src="images/ESP32.jpg" width="200"> |
+| Cáp dữ liệu USB Type-C (đi kèm với board) | <img src="images/USB_Type-C.jpg" width="200"> |
+
+---
+
+## 💻 3. Công nghệ
+- **Visual Studio Code**
+  - Extension: **PlatformIO**
+  - Framework: **Arduino**
+  - Thư viện: **Arduino.h**
+
+---
+
+## 📁 4. Cấu trúc dự án
+```text
+├───.pio
+│   └───build
+│       └───esp32dev
+│           ├───FrameworkArduino
+│           │   └───libb64
+│           └───src
+├───.vscode     
+├───images
+├───include
+├───lib
+├───src
+└───test
+```
+- `.pio/`: kết quả build và cache của project này.
+- `.vscode/`: cấu hình riêng của VS Code.
+- `images/`: ảnh minh họa.
+- `include/`: các file header của project.
+- `lib/`: thư viện tự viết hoặc thư viện ngoài.
+- `src/`: mã nguồn chính.
+- `test/`: unit test nếu dùng PIO Unit Testing Framework.
+
+---
+
+## 🚀 5. Thực hiện
+1. Cắm dây USB vào máy tính và bo mạch ESP32.
+2. Mở folder dự án này bằng VS Code (đã cài PIO Extension).
+3. Nhấn nút mũi tên phải trên thanh công cụ phía dưới màn hình để biên dịch và nạp code.
+4. Quan sát kết quả.
+
+---
+
+## 📚 6. Mình đã học được gì?
+
+**Lỗi *''blink' was not declared in this scope'***
+- Đưa hàm `blink` lên trước hàm gọi nó là `loop`
+- -> Hàm được gọi phải đứng trước hàm gọi trong mã nguồn.
+
+**Sử dụng tư duy non-blocking thay vì hàm `delay` để viết code**
+- Việc đổi trạng thái LED (sáng - tắt) chỉ là một bước kiểm tra phụ trong mỗi lần lặp của hàm loop.
+- Mỗi lần chạy một vòng lặp, kiểm tra xem đã đến thời điểm cần đổi trạng thái đèn chưa và ra quyết định -> Không dùng hàm delay để dừng toàn bộ chương trình của chip.
+
+---
+
+<p align="center">Made with ❤️ during ESP32 learning journey</p>
