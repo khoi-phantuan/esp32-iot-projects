@@ -13,7 +13,7 @@
 - **Cáp dữ liệu USB Type-C** (đi kèm với board)
 
 <details>
-<summary>View images</summary>
+<summary>Xem ảnh</summary>
 
 *ESP32 Development Board (30-pin, USB-C):*
 ![](images/ESP32.jpg)
@@ -63,6 +63,8 @@
 - Nhấn nút mũi tên phải trên thanh công cụ phía dưới màn hình để biên dịch và nạp code.
 - Quan sát kết quả.
 
+![](images/demo.gif)
+
 ---
 
 ## 6. Mình đã học được gì?
@@ -71,4 +73,4 @@
   -> Hàm được gọi phải đứng trước hàm gọi trong mã nguồn.
 - Sử dụng tư duy non-blocking thay vì hàm `delay` để viết code:
   - Việc đổi trạng thái LED (sáng - tắt) chỉ là một bước kiểm tra phụ trong mỗi lần lặp của hàm loop.
-  - Mỗi lần chạy một vòng lặp, kiểm tra xem đã đến thời điểm cần đổi trạng thái đèn chưa và ra quyết định. Không dùng hàm delay để dừng toàn bộ chương trình của chip.
+  - Mỗi lần chạy một vòng lặp, kiểm tra xem đã đến thời điểm cần đổi trạng thái đèn chưa và ra quyết định -> Không dùng hàm delay để dừng toàn bộ chương trình của chip.
